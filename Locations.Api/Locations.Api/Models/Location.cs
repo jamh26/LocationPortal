@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Locations.Api.Models
+﻿namespace Locations.Api.Models
 {
     public class Location
     {

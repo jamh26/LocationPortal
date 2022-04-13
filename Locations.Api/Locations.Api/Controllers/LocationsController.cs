@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Locations.Api.Data;
 using Locations.Api.Dtos;
-using Locations.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 

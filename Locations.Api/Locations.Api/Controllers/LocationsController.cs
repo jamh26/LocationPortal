@@ -9,7 +9,13 @@ namespace Locations.Api.Controllers
     [ApiController]
     public class LocationsController : ControllerBase
     {
-        private readonly MockLocationRepo _repository = new MockLocationRepo();
+        private readonly ILocationRepo _repository;
+
+        public LocationsController(ILocationRepo repository)
+        {
+            _repository = repository;
+        }
+
         // GET api/locations
         [HttpGet]
         public ActionResult <IEnumerable<Location>> GetAllLocations()

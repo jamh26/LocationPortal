@@ -63,5 +63,10 @@ namespace Locations.Api.Data
         {
             throw new System.NotImplementedException();
         }
+
+        public void UpdateLocation(Location location)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

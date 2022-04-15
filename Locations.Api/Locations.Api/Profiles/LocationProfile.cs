@@ -11,6 +11,7 @@ namespace Locations.Api.Profiles
             // Source -> Target
             CreateMap<Location, LocationReadDto>();
             CreateMap<LocationCreateDto, Location>();
+            CreateMap<LocationUpdateDto, Location>();
         }
     }
 }

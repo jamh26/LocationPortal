@@ -53,5 +53,24 @@ namespace Locations.Api.Controllers
             //return Ok(locationReadDto);
             return CreatedAtRoute(nameof(GetLocationById), new { Id = locationReadDto.Id }, locationReadDto);
         }
+
+        // PUT /api/locations/{id}
+        [HttpPut("{id}")]
+        public ActionResult UpdateLocation(int id, LocationUpdateDto locationUpdateDto)
+        {
+            var locationModelFromRepo = _repository.GetLocationById(id);
+            if(locationModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _mapper.Map(locationUpdateDto, locationModelFromRepo);
+
+            _repository.UpdateLocation(locationModelFromRepo);
+
+            _repository.SaveChanges();
+
+            return NoContent();
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace Locations.Api.Data
         IEnumerable<Location> GetAllLocations();
         Location GetLocationById(int id);
         void CreatLocation(Location location);
+        void UpdateLocation(Location location);
     }
 }

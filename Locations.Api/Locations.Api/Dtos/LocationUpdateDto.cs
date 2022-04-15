@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Locations.Api.Dtos
 {
-    public class LocationCreateDto
+    public class LocationUpdateDto
     {
         [Required]
         [MaxLength(250)]

@@ -38,5 +38,10 @@ namespace Locations.Api.Data
         {
             return (_context.SaveChanges() >= 0);
         }
+
+        public void UpdateLocation(Location location)
+        {
+            // nothing
+        }
     }
 }

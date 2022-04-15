@@ -24,9 +24,14 @@ namespace Locations.Api.Data
             _context.Locations.Add(location);
         }
 
-        public bool DeleteLocation(Location location)
+        public void DeleteLocation(Location location)
         {
-            throw new NotImplementedException();
+            if (location == null)
+            {
+                throw new ArgumentNullException(nameof(location));
+            }
+
+            _context.Locations.Remove(location);
         }
 
         public IEnumerable<Location> GetAllLocations()

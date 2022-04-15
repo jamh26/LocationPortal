@@ -10,7 +10,7 @@ namespace Locations.Api.Data
             throw new System.NotImplementedException();
         }
 
-        public bool DeleteLocation(Location location)
+        public void DeleteLocation(Location location)
         {
             throw new System.NotImplementedException();
         }

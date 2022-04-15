@@ -111,11 +111,11 @@ namespace Locations.Api.Controllers
                 return NotFound();
             }
 
-            if (_repository.DeleteLocation(locationModelFromRepo))
-            {
-                return NoContent();
-            }
-            return BadRequest();
+            _repository.DeleteLocation(locationModelFromRepo);
+            _repository.SaveChanges();
+            
+            return NoContent();
+
         }
     }
 }

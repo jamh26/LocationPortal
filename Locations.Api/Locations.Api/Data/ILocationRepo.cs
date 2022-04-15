@@ -11,7 +11,7 @@ namespace Locations.Api.Data
         Location GetLocationById(int id);
         void CreatLocation(Location location);
         void UpdateLocation(Location location);
-        bool DeleteLocation(Location location);
+        void DeleteLocation(Location location);
         bool UpsertLocation(Location location);
     }
 }

@@ -8,10 +8,15 @@ namespace Locations.Api.Data
         bool SaveChanges();
 
         IEnumerable<Location> GetAllLocations();
+
         Location GetLocationById(int id);
-        void CreatLocation(Location location);
+
+        bool CreatLocation(Location location);
+
         void UpdateLocation(Location location);
-        void DeleteLocation(Location location);
+
+        bool DeleteLocation(Location location);
+
         bool UpsertLocation(Location location);
     }
 }

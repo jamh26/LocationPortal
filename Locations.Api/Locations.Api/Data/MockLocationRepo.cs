@@ -5,12 +5,12 @@ namespace Locations.Api.Data
 {
     public class MockLocationRepo : ILocationRepo
     {
-        public void CreatLocation(Location location)
+        public bool CreatLocation(Location location)
         {
             throw new System.NotImplementedException();
         }
 
-        public void DeleteLocation(Location location)
+        public bool DeleteLocation(Location location)
         {
             throw new System.NotImplementedException();
         }

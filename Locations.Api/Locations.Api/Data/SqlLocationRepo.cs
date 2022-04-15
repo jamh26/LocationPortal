@@ -14,24 +14,39 @@ namespace Locations.Api.Data
             _context = context;
         }
 
-        public void CreatLocation(Location location)
-        {
-            if(location == null)
-            {
-                throw new ArgumentNullException(nameof(location));
-            }
-
-            _context.Locations.Add(location);
-        }
-
-        public void DeleteLocation(Location location)
+        public bool CreatLocation(Location location)
         {
             if (location == null)
             {
                 throw new ArgumentNullException(nameof(location));
             }
 
-            _context.Locations.Remove(location);
+            try
+            {
+                var result = _context.Add(location);
+                return SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteLocation(Location location)
+        {
+            if (location == null)
+            {
+                throw new ArgumentNullException(nameof(location));
+            }
+            try
+            {
+                var result = _context.Remove(location);
+                return SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public IEnumerable<Location> GetAllLocations()
@@ -46,7 +61,14 @@ namespace Locations.Api.Data
 
         public bool SaveChanges()
         {
-            return (_context.SaveChanges() >= 0);
+            try
+            {
+                return (_context.SaveChanges() >= 0);
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public void UpdateLocation(Location location)

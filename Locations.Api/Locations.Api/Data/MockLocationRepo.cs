@@ -5,6 +5,11 @@ namespace Locations.Api.Data
 {
     public class MockLocationRepo : ILocationRepo
     {
+        public void CreatLocation(Location location)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Location> GetAllLocations()
         {
             var locations = new List<Location>
@@ -52,6 +57,11 @@ namespace Locations.Api.Data
                 State = "New Mexico",
                 ZipCode = "87113"
             };
+        }
+
+        public bool SaveChanges()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

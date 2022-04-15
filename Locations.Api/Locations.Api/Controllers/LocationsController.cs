@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Locations.Api.Data;
 using Locations.Api.Dtos;
+using Locations.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -28,7 +29,7 @@ namespace Locations.Api.Controllers
         }
 
         // GET api/locations/{id}
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetLocationById")]
         public ActionResult<LocationReadDto> GetLocationById(int id)
         {
             var locationItem = _repository.GetLocationById(id);
@@ -37,6 +38,20 @@ namespace Locations.Api.Controllers
                 return Ok(_mapper.Map<LocationReadDto>(locationItem));
             }
             return NotFound();
+        }
+
+        // POST api/locations
+        [HttpPost]
+        public ActionResult<LocationReadDto> CreateLocation(LocationCreateDto locationCreateDto)
+        {
+            var locationModel = _mapper.Map<Location>(locationCreateDto);
+            _repository.CreatLocation(locationModel);
+            _repository.SaveChanges();
+
+            var locationReadDto = _mapper.Map<LocationReadDto>(locationModel);
+
+            //return Ok(locationReadDto);
+            return CreatedAtRoute(nameof(GetLocationById), new { Id = locationReadDto.Id }, locationReadDto);
         }
     }
 }

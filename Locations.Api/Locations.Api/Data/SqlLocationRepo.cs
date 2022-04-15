@@ -14,6 +14,16 @@ namespace Locations.Api.Data
             _context = context;
         }
 
+        public void CreatLocation(Location location)
+        {
+            if(location == null)
+            {
+                throw new ArgumentNullException(nameof(location));
+            }
+
+            _context.Locations.Add(location);
+        }
+
         public IEnumerable<Location> GetAllLocations()
         {
             return _context.Locations.ToList();
@@ -22,6 +32,11 @@ namespace Locations.Api.Data
         public Location GetLocationById(int id)
         {
             return _context.Locations.FirstOrDefault(p => p.Id == id);
+        }
+
+        public bool SaveChanges()
+        {
+            return (_context.SaveChanges() >= 0);
         }
     }
 }

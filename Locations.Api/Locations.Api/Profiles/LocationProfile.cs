@@ -8,7 +8,9 @@ namespace Locations.Api.Profiles
     {
         public LocationProfile()
         {
+            // Source -> Target
             CreateMap<Location, LocationReadDto>();
+            CreateMap<LocationCreateDto, Location>();
         }
     }
 }

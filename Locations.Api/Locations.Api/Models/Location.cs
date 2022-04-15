@@ -15,11 +15,7 @@ namespace Locations.Api.Models
         [Required]
         [MaxLength(250)]
         public string City { get; set; }
-        [Required]
-        [MaxLength(250)]
-        public string State { get; set; }
-        [Required]
-        [MaxLength(250)]
-        public string Country { get; set; }
+        public string State { get; set; } = "New Mexico";
+        public string Country { get; set; } = "USA";
     }
 }

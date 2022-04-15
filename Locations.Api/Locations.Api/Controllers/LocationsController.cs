@@ -2,6 +2,7 @@
 using Locations.Api.Data;
 using Locations.Api.Dtos;
 using Locations.Api.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -71,6 +72,50 @@ namespace Locations.Api.Controllers
             _repository.SaveChanges();
 
             return NoContent();
+        }
+
+        // PATCH /api/locations/{id}
+        [HttpPatch("{id}")]
+        public ActionResult PartialLocationUpdate(int id, JsonPatchDocument<LocationUpdateDto> patchDoc)
+        {
+            var locationModelFromRepo = _repository.GetLocationById(id);
+            if (locationModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            var locationToPatch = _mapper.Map<LocationUpdateDto>(locationModelFromRepo);
+
+            patchDoc.ApplyTo(locationToPatch, ModelState);
+            if (!TryValidateModel(locationToPatch))
+            {
+                return ValidationProblem(ModelState);
+            }
+
+            _mapper.Map(locationToPatch, locationModelFromRepo);
+
+            _repository.UpdateLocation(locationModelFromRepo);
+
+            _repository.SaveChanges();
+
+            return NoContent();
+        }
+
+        // DELETE api/locations/{id}
+        [HttpDelete("{id}")]
+        public ActionResult DeleteLocation(int id)
+        {
+            var locationModelFromRepo = _repository.GetLocationById(id);
+            if (locationModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            if (_repository.DeleteLocation(locationModelFromRepo))
+            {
+                return NoContent();
+            }
+            return BadRequest();
         }
     }
 }

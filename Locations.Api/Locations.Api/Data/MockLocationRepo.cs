@@ -10,6 +10,11 @@ namespace Locations.Api.Data
             throw new System.NotImplementedException();
         }
 
+        public bool DeleteLocation(Location location)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Location> GetAllLocations()
         {
             var locations = new List<Location>
@@ -65,6 +70,11 @@ namespace Locations.Api.Data
         }
 
         public void UpdateLocation(Location location)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool UpsertLocation(Location location)
         {
             throw new System.NotImplementedException();
         }

@@ -24,6 +24,11 @@ namespace Locations.Api.Data
             _context.Locations.Add(location);
         }
 
+        public bool DeleteLocation(Location location)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Location> GetAllLocations()
         {
             return _context.Locations.ToList();
@@ -42,6 +47,11 @@ namespace Locations.Api.Data
         public void UpdateLocation(Location location)
         {
             // nothing
+        }
+
+        public bool UpsertLocation(Location location)
+        {
+            throw new NotImplementedException();
         }
     }
 }

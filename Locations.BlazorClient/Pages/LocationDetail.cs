@@ -1,5 +1,7 @@
 ﻿using Locations.BlazorClient.Models;
+using Locations.BlazorClient.Services;
 using Microsoft.AspNetCore.Components;
+using System;
 using System.Threading.Tasks;
 
 namespace Locations.BlazorClient.Pages
@@ -9,27 +11,15 @@ namespace Locations.BlazorClient.Pages
         [Parameter]
         public string Id { get; set; }
 
+        [Inject]
+        public ILocationDataService LocationDataService { get; set; }
+
         public LocationData Location { get; set; } = new LocationData();
 
-        private void InitializeLocation()
+        protected override async Task OnInitializedAsync()
         {
-            var l1 = new LocationData
-            {
-                Id = 1,
-                PhysicalAddress = "8493 this is not real",
-                ZipCode = "32446",
-                City = "bosque farms",
-                State = "New Mexico",
-                Country = "USA"
-            };
-
-            Location = l1;
-        }
-
-        protected override Task OnInitializedAsync()
-        {
-            InitializeLocation();
-            return base.OnInitializedAsync();
+            var locationId = Convert.ToInt32(Id);
+            Location = await LocationDataService.GetLocationDetails(locationId);
         }
     }
 }

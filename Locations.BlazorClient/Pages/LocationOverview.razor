@@ -23,21 +23,34 @@ else
         <tbody>
             @foreach (var location in Locations)
             {
-            <tr>
-                <td>@location.Id</td>
-                <td>@location.PhysicalAddress</td>
-                <td>@location.City</td>
-                <td>@location.ZipCode</td>
-                <td>@location.State</td>
-                <td>@location.Country</td>
-                <td>
-                    <a href="@($"LocationDetail/{location.Id}")" class="btn btn-success">
-                        Detail
-                    </a>
-                </td>
-            </tr>
+                <tr>
+                    <td>@location.Id</td>
+                    <td>@location.PhysicalAddress</td>
+                    <td>@location.City</td>
+                    <td>@location.ZipCode</td>
+                    <td>@location.State</td>
+                    <td>@location.Country</td>
+                    <td>
+                        <a href="@($"LocationDetail/{location.Id}")" class="btn btn-success">
+                            Detail
+                        </a>
+                        <a href="@($"LocationEdit/{location.Id}")" class="btn btn-success">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
 
             }
         </tbody>
     </table>
-} 
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group row justify-content-center">
+            <a href="/LocationEdit" class="btn btn-success">
+                Create New Location
+            </a>
+        </div>
+    </div>
+</div> 

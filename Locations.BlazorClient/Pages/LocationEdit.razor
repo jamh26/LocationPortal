@@ -1,0 +1,36 @@
+﻿@page "/locationEdit"
+@page "/locationEdit/{id}"
+
+<h1>Details for @Location.PhysicalAddress</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <DataAnnotationsValidator />
+        <ValidationSummary></ValidationSummary>
+        <br />
+        <EditForm Model="@Location" OnValidSubmit="@HandleValidRequest" OnInvalidSubmit="HandleInvalidRequest">
+            <div class="form-group row">
+                <lavel class="col-md-4">Physical Address</lavel>
+                <InputText class="col-md-8" @bind-Value="@Location.PhysicalAddress" id="PhysicalAddress"></InputText>
+            </div>
+            <div class="form-group row">
+                <lavel class="col-md-4">City</lavel>
+                <InputText class="col-md-8" @bind-Value="@Location.City" id="City"></InputText>
+            </div>
+            <div class="form-group row">
+                <lavel class="col-md-4">Zip Cody</lavel>
+                <InputText class="col-md-8" @bind-Value="@Location.ZipCode" id="ZipCode"></InputText>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-warning">Save Location</button>
+                <a @onclick="@GoToOverview" class="btn btn-primary">Back</a>
+                @if (!String.IsNullOrEmpty(Id))
+                {
+                    <a @onclick="@DeleteLocation" class="btn btn-danger">Delete Location</a>
+                }
+            </div>
+            <label>@Message</label>
+        </EditForm>
+    </div>
+</div>

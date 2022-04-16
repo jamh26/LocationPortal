@@ -9,5 +9,11 @@ namespace Locations.BlazorClient.Services
         Task<IEnumerable<LocationData>> GetAllLocations();
 
         Task<LocationData> GetLocationDetails(int id);
+
+        Task<LocationData> AddLocation(LocationData location);
+
+        Task UpdateLocation(LocationData location);
+
+        Task DeleteLocation(int id);
     }
 }

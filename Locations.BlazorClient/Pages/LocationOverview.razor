@@ -1,0 +1,43 @@
+﻿@page "/locationoverview"
+
+<h1>All Locations</h1>
+
+@if (Locations == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Physical Address</td>
+                <td>City</td>
+                <td>Zipcode</td>
+                <td>State</td>
+                <td>Country</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var location in Locations)
+            {
+            <tr>
+                <td>@location.Id</td>
+                <td>@location.PhysicalAddress</td>
+                <td>@location.City</td>
+                <td>@location.ZipCode</td>
+                <td>@location.State</td>
+                <td>@location.Country</td>
+                <td>
+                    <a href="@($"LocationDetail/{location.Id}")" class="btn btn-success">
+                        Detail
+                    </a>
+                </td>
+            </tr>
+
+            }
+        </tbody>
+    </table>
+} 

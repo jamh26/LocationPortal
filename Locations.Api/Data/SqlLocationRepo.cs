@@ -7,9 +7,9 @@ namespace Locations.Api.Data
 {
     public class SqlLocationRepo : ILocationRepo
     {
-        private readonly LocationContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public SqlLocationRepo(LocationContext context)
+        public SqlLocationRepo(ApplicationDbContext context)
         {
             _context = context;
         }

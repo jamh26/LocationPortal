@@ -13,7 +13,7 @@ ForEach-Object {
     # all POST requests, unless specified otherwise.
      $Params = @{
          Method = "Post"
-         Uri = "http://localhost:8090/api/locations"
+         Uri = "https://localhost:44318/api/locations"
          Body = $JsonBody
          ContentType = "application/json"
      }

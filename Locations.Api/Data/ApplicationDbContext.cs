@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Locations.Api.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,10 @@ namespace Locations.Api.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+        public virtual DbSet<User> Users { get; set; }
+
+        public DbSet<Location> Locations { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

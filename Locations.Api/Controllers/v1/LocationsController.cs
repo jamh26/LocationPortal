@@ -6,16 +6,14 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace Locations.Api.Controllers
+namespace Locations.Api.Controllers.v1
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class LocationsController : ControllerBase
+    public class LocationsController : BaseController
     {
         private readonly ILocationRepo _repository;
         private readonly IMapper _mapper;
 
-        public LocationsController(ILocationRepo repository, IMapper mapper)
+        public LocationsController(ILocationRepo repository, IMapper mapper, IUnitOfWork unitOfWork) : base(unitOfWork)
         {
             _repository = repository;
             _mapper = mapper;

@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.32407.337
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Locations.Api", "Locations.Api\Locations.Api.csproj", "{0B04BD11-4852-4726-BC88-350E5156F3CE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Locations.BlazorClient", "..\Locations.BlazorClient\Locations.BlazorClient.csproj", "{EA0C937C-4DB2-4BA8-B194-B7E1F1C0105E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Locations.BlazorClient", "Locations.BlazorClient\Locations.BlazorClient.csproj", "{EA0C937C-4DB2-4BA8-B194-B7E1F1C0105E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApi", "..\TestApi\TestApi.csproj", "{2E8F0ED1-D3F0-41FE-BF53-441987BF1664}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApi", "Testing\TestApi\TestApi.csproj", "{2E8F0ED1-D3F0-41FE-BF53-441987BF1664}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

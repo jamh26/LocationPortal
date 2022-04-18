@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Locations.Api.Models
+namespace Locations.Api.Dtos
 {
-    public class JwtConfig
+    public class UserRegistrationResponseDto : AuthResultDto
     {
-        public string Secret { get; set; }
     }
 }

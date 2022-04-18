@@ -1,4 +1,4 @@
-using Locations.Api.Authentication;
+using Locations.Api.Authentication.Configuration;
 using Locations.Api.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Locations.Api.Dtos
+namespace Locations.Api.Authentication.Models.Dtos.Outgoing
 {
     public class AuthResultDto
     {

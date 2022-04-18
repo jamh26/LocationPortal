@@ -1,4 +1,4 @@
-﻿namespace Locations.Api.Authentication
+﻿namespace Locations.Api.Authentication.Configuration
 {
     public class JwtConfig
     {

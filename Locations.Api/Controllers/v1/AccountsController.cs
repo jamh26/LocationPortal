@@ -1,6 +1,7 @@
-﻿using Locations.Api.Authentication;
+﻿using Locations.Api.Authentication.Configuration;
+using Locations.Api.Authentication.Models.Dtos.Incoming;
+using Locations.Api.Authentication.Models.Dtos.Outgoing;
 using Locations.Api.Data;
-using Locations.Api.Dtos;
 using Locations.Api.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

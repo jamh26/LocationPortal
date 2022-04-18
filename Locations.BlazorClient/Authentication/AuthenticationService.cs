@@ -34,7 +34,7 @@ namespace Locations.BlazorClient.Authentication
                 new KeyValuePair<string, string>("password", userForAuthentication.Password)
             });
 
-            var authResult = await _client.PostAsync("https://localhost:8090/api/token", data);
+            var authResult = await _client.PostAsync("http://localhost:8090/api/token", data);
             var authContent = await authResult.Content.ReadAsStringAsync();
 
             if (authResult.IsSuccessStatusCode == false)
